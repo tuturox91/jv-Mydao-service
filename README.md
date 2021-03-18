@@ -14,7 +14,7 @@ public class Driver {
     - List<Manufacturer> getAll();
     - Manufacturer update(Manufacturer manufacturer);
     - boolean delete(Long id);
-- Create Dao and Service layers for `Driver` and theirs implementations.
+- Create Dao and Service layers for `Driver` and their implementations.
 ### DriverService methods:
     - Driver create(Driver driver);
     - Driver get(Long id);
