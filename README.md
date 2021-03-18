@@ -23,5 +23,7 @@ public class Driver {
     - boolean delete(Long id);
 
 - Test your code in `main`.
+- Main should only contain invocation of `Service` methods, no Dao methods allowed in `main`.
+- Do not forget about Dependency Injection. Use your annotations.
 
 __You can check yourself using this__ [checklist](https://mate-academy.github.io/jv-program-common-mistakes/java-JDBC/dao-vs-service/dao-vs-service_checklist.html)
