@@ -22,6 +22,7 @@ public class Driver {
     - Driver update(Driver driver);
     - boolean delete(Long id);
 
+- Do not forget about DB naming rules mentioned in previous homework.
 - Add required dependencies in pom.xml.
 - Test your code in `main`.
 - Main should only contain invocation of `Service` methods, no Dao methods allowed in `main`.
