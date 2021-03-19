@@ -18,7 +18,7 @@ public class ManufacturerDaoImpl implements ManufacturerDao {
     @Override
     public Manufacturer create(Manufacturer manufacturer) {
         String query = "INSERT INTO manufacturers (manufacturer_name,manufacturer_country) "
-                + "VALUES (?,?)";
+                + "VALUES (?, ?)";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement preparedStatement
                         = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
@@ -39,9 +39,10 @@ public class ManufacturerDaoImpl implements ManufacturerDao {
     @Override
     public Optional<Manufacturer> get(Long id) {
         String query = "SELECT * FROM manufacturers"
-                + " WHERE manufacturer_id = " + id + " AND deleted = FALSE";
+                + " WHERE manufacturer_id = (?) AND deleted = FALSE";
         try (Connection connection = ConnectionUtil.getConnection();
-                Statement statement = connection.createStatement()) {
+                PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setLong(1, id);
             ResultSet resultSet = statement.executeQuery(query);
             Manufacturer manufacturer = null;
             if (resultSet.next()) {
